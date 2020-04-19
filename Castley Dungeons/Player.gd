@@ -22,7 +22,8 @@ var fall = Vector3()
 onready var head = $head
 onready var sprint_timer = $SprintTimer
 onready var pcap = $CollisionShape
-onready var bonker = $HeadBonker
+#onready var bonker = $HeadBonker
+onready var anim_player = $AnimationPlayer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -32,7 +33,8 @@ onready var bonker = $HeadBonker
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	get_tree().call_group("zombies", "set_player", self)
+	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("fire"):
 		var direct_state = get_world().direct_space_state
@@ -100,7 +102,7 @@ func _process(delta):
 		direction += transform.basis.x
 		
 	if Input.is_action_pressed("attack"):
-		
+		anim_player.play("Melee")
 		print("hello world")
 	
 	direction = direction.normalized()

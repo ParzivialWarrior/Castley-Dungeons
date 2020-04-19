@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://Hand.png" type="Texture" id=2]
+[ext_resource path="res://Hand-SheetAnmi.png" type="Texture" id=2]
 [ext_resource path="res://crosshair.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -13,11 +13,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [  ]
+"values": [ 0 ]
 }
+
+[sub_resource type="AnimationNodeAnimation" id=4]
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.5
@@ -35,6 +37,8 @@ script = ExtResource( 1 )
 anims/Melee = SubResource( 1 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 4 )
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 3.13338, 0.0502911 )
@@ -65,9 +69,10 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/Control"]
-position = Vector2( 716.784, 497.164 )
-scale = Vector2( 4.52805, 3.72584 )
+position = Vector2( 951.717, 535.366 )
+scale = Vector2( 9.01189, 5.73607 )
 texture = ExtResource( 2 )
+hframes = 9
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 anchor_left = 0.5
