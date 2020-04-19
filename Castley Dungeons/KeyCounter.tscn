@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://KeyIcon.png" type="Texture" id=1]
+
+[node name="KeyCounter" type="Node"]
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 2251.09
+margin_top = 35.1913
+margin_right = 2575.09
+margin_bottom = 340.191
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 2305.0
+margin_top = 127.0
+margin_right = 2525.0
+margin_bottom = 241.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
