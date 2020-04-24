@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://EnemyChase.gd" type="Script" id=1]
 [ext_resource path="res://ZombieKnight.png" type="Texture" id=2]
+[ext_resource path="res://hurtbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "die"
@@ -39,3 +40,5 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235622, 1.95943, 0.524239 )
 material_override = SubResource( 4 )
 texture = ExtResource( 2 )
+
+[node name="hurtbox" parent="." instance=ExtResource( 3 )]

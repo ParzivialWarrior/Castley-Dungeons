@@ -27,6 +27,8 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [node name="Fire Particles" type="Particles2D"]
+visible = false
 position = Vector2( 474.044, 267.778 )
+scale = Vector2( 30, 30 )
 amount = 100
 process_material = SubResource( 5 )

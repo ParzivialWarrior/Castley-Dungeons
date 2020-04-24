@@ -8,7 +8,7 @@ var default_speed = 7
 var sprinting = false
 var acceleartion = 20
 var gravity = 9.5
-var jump = 5
+var jump = 6.5
 
 var default_height = 1.5
 var crouch_height = 0.5
@@ -24,6 +24,7 @@ onready var sprint_timer = $SprintTimer
 onready var pcap = $CollisionShape
 #onready var bonker = $HeadBonker
 onready var anim_player = $AnimationPlayer
+onready var Scent = $ScentTimer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -64,7 +65,7 @@ func _process(delta):
 	if not is_on_floor():
 		fall.y -= gravity * delta
 		
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		fall.y = jump
 	#if head.bonked:
 		#fall.y = 2
@@ -111,11 +112,8 @@ func _process(delta):
 	
 	move_and_slide(velocity, Vector3.UP)
 	move_and_slide(fall, Vector3.UP)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 	#pass
-
-
-func _on_Sprint_Timer_timeout():
-	sprinting = false
 
