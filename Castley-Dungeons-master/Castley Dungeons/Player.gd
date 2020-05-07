@@ -25,7 +25,6 @@ onready var pcap = $CollisionShape
 #onready var bonker = $HeadBonker
 onready var anim_player = $AnimationPlayer
 onready var Scent = $ScentTimer
-onready var raycast = $RayCast
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -107,13 +106,6 @@ func _process(delta):
 		anim_player.play("Melee")
 		print("hello world")
 	
-	if Input.is_action_pressed("shoot") and !anim_player.is_playing():
-		var coll = raycast.get_collider()
-		if raycast.is_colliding() and coll.has_method("kill"): 			coll.kill() 	
-		var move_vec = Vector3()
-		
-	#move_vec = move_vec.normalized()
-   # move_and_collide(move_vec * speed * delta)
 	direction = direction.normalized()
 	velocity = velocity.linear_interpolate(direction * speed, acceleartion * delta)
 	velocity = move_and_slide(velocity, Vector3.UP)

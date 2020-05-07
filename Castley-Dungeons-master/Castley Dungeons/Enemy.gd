@@ -3,14 +3,13 @@ extends KinematicBody
 const MOVE_SPEED = 3
  
 onready var raycast = $RayCast
-onready var anim_player = $animplayer
- 
+onready var anim_player = $AnimationPlayer
 var player = null
 var dead = false
  
 func _ready():
-	anim_player.play("walk")
-	add_to_group("zombies")
+   anim_player.play("walk")
+   add_to_group("zombies")
  
 func _physics_process(delta):
 	if dead:
@@ -37,4 +36,3 @@ func kill():
  
 func set_player(p):
 	player = p
-
